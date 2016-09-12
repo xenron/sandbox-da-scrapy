@@ -27,8 +27,8 @@ DOWNLOADER_MIDDLEWARES = {
 }
 
 ITEM_PIPELINES = {
-    'doubanmovie.pipelines.JsonWithEncodingPipeline': 300,
-    #'doubanmovie.pipelines.RedisPipeline': 301,
+    'lintcode.pipelines.JsonWithEncodingPipeline': 300,
+    #'lintcode.pipelines.RedisPipeline': 301,
 }
 
 LOG_LEVEL = 'INFO'

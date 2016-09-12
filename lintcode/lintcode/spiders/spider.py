@@ -15,13 +15,13 @@ from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor as sle
 
 
-from doubanmovie.items import *
+from lintcode.items import *
 from misc.log import *
 from misc.spider import CommonSpider
 
 
 class doubanmovieSpider(CommonSpider):
-    name = "doubanmovie"
+    name = "lintcode"
     allowed_domains = ["douban.com"]
     start_urls = [
         #"https://movie.douban.com/tag/",
