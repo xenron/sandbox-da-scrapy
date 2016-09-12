@@ -20,12 +20,12 @@ from misc.log import *
 from misc.spider import CommonSpider
 
 
-class doubanmovieSpider(CommonSpider):
+class lintcodeSpider(CommonSpider):
     name = "lintcode"
-    allowed_domains = ["douban.com"]
+    allowed_domains = ["lintcode.com"]
     start_urls = [
-        #"https://movie.douban.com/tag/",
-        "https://movie.douban.com/chart"
+        #"https://movie.lintcode.com/tag/",
+        "http://www.lintcode.com/en/problem/"
     ]
     rules = [
         #Rule(sle(allow=("/tag/[0-9]{4}$")), follow=True),
@@ -60,4 +60,4 @@ class doubanmovieSpider(CommonSpider):
         x = self.parse_with_rules(response, self.content_css_rules, dict)
         return x
         #print(repr(x).decode('raw_unicode_escape'))
-        # return self.parse_with_rules(response, self.css_rules, doubanmovieItem)
+        # return self.parse_with_rules(response, self.css_rules, lintcodeItem)
