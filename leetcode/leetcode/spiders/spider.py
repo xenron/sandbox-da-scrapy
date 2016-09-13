@@ -25,35 +25,40 @@ class leetcodeSpider(CommonSpider):
     allowed_domains = ["leetcode.com"]
     start_urls = [
         #"https://movie.leetcode.com/tag/",
-        "https://movie.leetcode.com/chart"
+        "https://leetcode.com/problemset/algorithms/"
     ]
-    rules = [
-        #Rule(sle(allow=("/tag/[0-9]{4}$")), follow=True),
-        #Rule(sle(allow=("/tag/[0-9]{4}/?start=[0-9]{2,4}&type=T$")), follow=True),
-        #Rule(sle(allow=("/subject/[0-9]+$")), callback='parse_1'),
-        Rule(sle(allow=("/subject/[0-9]+/$")), callback='parse_1', follow=True),
-    ]
+    # rules = [
+    #     #Rule(sle(allow=("/tag/[0-9]{4}$")), follow=True),
+    #     #Rule(sle(allow=("/tag/[0-9]{4}/?start=[0-9]{2,4}&type=T$")), follow=True),
+    #     #Rule(sle(allow=("/subject/[0-9]+$")), callback='parse_1'),
+    #     Rule(sle(allow=("/subject/[0-9]+/$")), callback='parse_1', follow=True),
+    # ]
 
-    list_css_rules = { 
-        '.linkto': {
-            'url': 'a::attr(href)',
-            'name': 'a::text',
-        }
-    }   
+    # list_css_rules = { 
+    #     '.linkto': {
+    #         'url': 'a::attr(href)',
+    #         'name': 'a::text',
+    #     }
+    # }   
 
-    list_css_rules_2 = { 
-        '#listZone .Q-tpWrap': {
-            'url': '.linkto::attr(href)',
-            'name': '.linkto::text'
-        }   
-    }   
+    # list_css_rules_2 = { 
+    #     '#listZone .Q-tpWrap': {
+    #         'url': '.linkto::attr(href)',
+    #         'name': '.linkto::text'
+    #     }   
+    # }   
 
-    content_css_rules = { 
-        'rating_per': '.rating_per::text',
-        'rating_num': '.rating_num::text',
-        'title': 'h1 span:nth-child(1)::text',
-        'rating_people': '.rating_people span::text',
-    }
+    # content_css_rules = { 
+    #     'rating_per': '.rating_per::text',
+    #     'rating_num': '.rating_num::text',
+    #     'title': 'h1 span:nth-child(1)::text',
+    #     'rating_people': '.rating_people span::text',
+    # }
+    
+    def parse(self, response):
+        info('Parse '+response.url)
+        print(response.url)
+
 
     def parse_1(self, response):
         info('Parse '+response.url)
